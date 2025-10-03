@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Picture This!</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -15,9 +14,43 @@
       <h1>Picture This!</h1>
       <h4>My Really Cool Blog Post</h4>
     </div>
-    <img src="images/museum.jpg" alt="placeholder">
 
+    <!-- Responsive image: landscape below 960px, square at/above 960px -->
+    <picture>
+      <!-- Square (≥960px), shows at ~50% viewport width -->
+      <source
+        media="(min-width: 960px)"
+        sizes="50vw"
+        srcset="
+          images/square/museum-square-480.jpg 480w,
+          images/square/museum-square-640.jpg 640w,
+          images/square/museum-square-800.jpg 800w,
+          images/square/museum-square-960.jpg 960w,
+          images/square/museum-square-1280.jpg 1280w,
+          images/square/museum-square-1440.jpg 1440w,
+          images/square/museum-square-1600.jpg 1600w,
+          images/square/museum-square-1920.jpg 1920w,
+          images/square/museum-square-2400.jpg 2400w
+        " />
+      <!-- Landscape (<960px), shows at ~100% viewport width -->
+      <source
+        media="(max-width: 959.98px)"
+        sizes="100vw"
+        srcset="
+          images/landscape/museum-landscape-320.jpg 320w,
+          images/landscape/museum-landscape-480.jpg 480w,
+          images/landscape/museum-landscape-720.jpg 720w,
+          images/landscape/museum-landscape-960.jpg 960w,
+          images/landscape/museum-landscape-1440.jpg 1440w,
+          images/landscape/museum-landscape-2160.jpg 2160w,
+          images/landscape/museum-landscape-2880.jpg 2880w
+        " />
+      <!-- Fallback -->
+      <img
+        class="responsive-img"
+        src="images/landscape/museum-landscape-480.jpg"
+        alt="Interior view of a museum with visitors and exhibits" />
+    </picture>
   </header>
 </body>
-
 </html>
